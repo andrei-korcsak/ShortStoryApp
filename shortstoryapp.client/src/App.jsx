@@ -2,8 +2,7 @@ import { useState, useRef } from 'react';
 import './App.css';
 
 function App() {
-    const [sentences, setSentences] = useState([]);
-    const [sortedSentences, setSortedSentences] = useState([]);
+    const [fileContent, setFileContent] = useState('');
     const [fileName, setFileName] = useState('');
     const [isSortDisabled, setIsSortDisabled] = useState(false);
     const fileInputRef = useRef(null);
@@ -14,24 +13,19 @@ function App() {
         setFileName(file.name);
 
         const text = await file.text();
-        const rawSentences = text
-            .split(/(?<=[.?!])\s+/)
-            .map(s => s.trim())
-            .filter(s => s.length > 0);
-        setSentences(rawSentences);
-        setSortedSentences([]);
+        setFileContent(text);
         setIsSortDisabled(false);
     };
 
     const handleSort = () => {
-        const sorted = [...sentences].sort((a, b) => a.localeCompare(b));
-        setSortedSentences(sorted);
+        const lines = fileContent.split('\n');
+        const sorted = lines.sort((a, b) => a.localeCompare(b)).join('\n');
+        setFileContent(sorted);
         setIsSortDisabled(true);
     };
 
     const handleClear = () => {
-        setSentences([]);
-        setSortedSentences([]);
+        setFileContent('');
         setFileName('');
         setIsSortDisabled(false);
         if (fileInputRef.current) {
@@ -61,7 +55,7 @@ function App() {
                 <button
                     className="button-blue"
                     onClick={handleSort}
-                    disabled={sentences.length === 0 || isSortDisabled}
+                    disabled={!fileContent || isSortDisabled}
                     style={{ marginLeft: '20px' }}
                 >
                     Sort
@@ -69,16 +63,16 @@ function App() {
                 <button
                     className="button-red"
                     onClick={handleClear}
-                    disabled={sentences.length === 0 && !fileName}
+                    disabled={!fileContent && !fileName}
                     style={{ marginLeft: '10px' }}
                 >
                     Clear
                 </button>
             </div>
-            <div className="sorted-text-area">
-                {(sortedSentences.length > 0 ? sortedSentences : sentences).map((s, i) => (
-                    <div key={i}>{s}</div>
-                ))}
+            <div className="sorted-text-area" style={{padding: 0}}>
+                <pre className="pre-content">
+                    {fileContent}
+                </pre>
             </div>
         </div>
     );
