@@ -5,6 +5,11 @@
     text-align: center;
 }
 
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 body {
     background: #fff;
     color: #000;
@@ -34,6 +39,7 @@ body {
     overflow-y: auto;            
     width: 100%;                 
     box-sizing: border-box;
+    text-align: left;
 }
 
 .top-controls {

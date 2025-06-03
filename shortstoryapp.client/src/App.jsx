@@ -5,6 +5,7 @@ function App() {
     const [sentences, setSentences] = useState([]);
     const [sortedSentences, setSortedSentences] = useState([]);
     const [fileName, setFileName] = useState('');
+    const [isSortDisabled, setIsSortDisabled] = useState(false);
     const fileInputRef = useRef(null);
 
     const handleFileChange = async (e) => {
@@ -19,17 +20,20 @@ function App() {
             .filter(s => s.length > 0);
         setSentences(rawSentences);
         setSortedSentences([]);
+        setIsSortDisabled(false);
     };
 
     const handleSort = () => {
         const sorted = [...sentences].sort((a, b) => a.localeCompare(b));
         setSortedSentences(sorted);
+        setIsSortDisabled(true);
     };
 
     const handleClear = () => {
         setSentences([]);
         setSortedSentences([]);
         setFileName('');
+        setIsSortDisabled(false);
         if (fileInputRef.current) {
             fileInputRef.current.value = '';
         }
@@ -57,7 +61,7 @@ function App() {
                 <button
                     className="button-blue"
                     onClick={handleSort}
-                    disabled={sentences.length === 0}
+                    disabled={sentences.length === 0 || isSortDisabled}
                     style={{ marginLeft: '20px' }}
                 >
                     Sort
