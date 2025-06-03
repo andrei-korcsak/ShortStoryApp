@@ -43,3 +43,64 @@ body {
     margin-bottom: 20px;
     justify-content: center;
 }
+
+.button-blue {
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+.button-blue:disabled {
+    background-color: #90caf9;
+    cursor: not-allowed;
+}
+
+.button-red {
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+.button-red:disabled {
+    background-color: #ef9a9a;
+    cursor: not-allowed;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    background-color: #43a047;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+    display: inline-block;
+    margin-right: 10px;
+}
+.file-label:hover, .file-label:focus {
+    background-color: #388e3c;
+}
+
+.file-name-box {
+    width: 180px;
+    margin-right: 10px;
+    background: #eee;
+    color: #888;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 1rem;
+}

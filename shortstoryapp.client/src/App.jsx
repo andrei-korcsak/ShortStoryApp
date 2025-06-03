@@ -39,19 +39,35 @@ function App() {
         <div className="app-container">
             <h1>Short Story Application</h1>
             <div className="top-controls">
-                <label htmlFor="fileInput">Import a file: </label>
+                <label htmlFor="fileInput" className="file-label">Import a file</label>
                 <input
                     id="fileInput"
+                    className="file-input"
                     type="file"
                     accept=".txt"
                     onChange={handleFileChange}
                     ref={fileInputRef}
                 />
-                {fileName && <span style={{ marginLeft: '10px' }}>{fileName}</span>}
-                <button onClick={handleSort} disabled={sentences.length === 0} style={{ marginLeft: '20px' }}>
+                <input
+                    type="text"
+                    disabled
+                    value={fileName || "File Name"}
+                    className="file-name-box"
+                />
+                <button
+                    className="button-blue"
+                    onClick={handleSort}
+                    disabled={sentences.length === 0}
+                    style={{ marginLeft: '20px' }}
+                >
                     Sort
                 </button>
-                <button onClick={handleClear} disabled={sentences.length === 0 && !fileName} style={{ marginLeft: '10px' }}>
+                <button
+                    className="button-red"
+                    onClick={handleClear}
+                    disabled={sentences.length === 0 && !fileName}
+                    style={{ marginLeft: '10px' }}
+                >
                     Clear
                 </button>
             </div>
