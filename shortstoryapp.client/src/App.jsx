@@ -37,7 +37,7 @@ function App() {
         <div className="app-container">
             <h1>Short Story Application</h1>
             <div className="top-controls">
-                <label htmlFor="fileInput" className="file-label">Import a file</label>
+                <label htmlFor="fileInput" className="file-label">Import File</label>
                 <input
                     id="fileInput"
                     className="file-input"
