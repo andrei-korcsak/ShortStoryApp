@@ -9,19 +9,19 @@ An application that allows users to import a text file and sort its contents alp
 * [Running Application](#running-application)
 
 # Assumptions
-To simplify processing, each new line in the file is treated as a single "sentence." This approach is taken because some quotations span multiple sentences, making it difficult to define sentence boundaries consistently.
+To simplify processing, each new line in the file is treated as a single "sentence". This approach is taken because some quotations span multiple sentences, making it difficult to define sentence boundaries consistently.
 The lines are then sorted alphabetically based on their character order. For instance, lines beginning with quotation marks will appear before those starting with the letter "A," since symbols are prioritized ahead of letters in alphabetical ordering.
 
 # Features
- - "Import File" button: Allows the user to select a text file from the File Explorer. The name of the imported file is displayed in the textbox.
- - "Sort" button: Sorts the sentences in the imported file alphabetically.
- - "Clear" button: Removes the imported file and clears its content from the textbox.
+ - Import File button: Allows the user to select a text file from the File Explorer. The name of the imported file is displayed in the textbox.
+ - Sort button: Sorts the sentences in the imported file alphabetically.
+ - Clear button: Removes the imported file and clears its content from the textbox.
  - Output textbox: Displays the content of the imported file.
 
 # Screenshots
-<img width="979" alt="{7AC05A20-855E-4A76-BE99-04138DD178E6}" src="https://github.com/user-attachments/assets/5afd84ee-f79b-49f6-b875-ca9975fe777b" />
-<img width="928" alt="{5C05FFDE-E3CD-4CA4-A659-26975054D2BB}" src="https://github.com/user-attachments/assets/91485bb0-865f-4d65-b3df-7cb2025b3533" />
-<img width="985" alt="{B29A65AB-5B3D-44CE-832B-BB6ADD09C5A2}" src="https://github.com/user-attachments/assets/b51ce56b-9956-4933-965d-67c0727a2544" />
+<img width="912" alt="{0045D187-3D22-4EA8-A52C-5998EFBBFD97}" src="https://github.com/user-attachments/assets/e29ea515-20d3-4281-8eb9-604e447117a0" />
+<img width="912" alt="{8B201C32-A9B2-4E5A-9FCD-895120756794}" src="https://github.com/user-attachments/assets/116f193e-cd89-4f2a-81c5-ce0e6fea1137" />
+<img width="912" alt="{EDA2A85A-0C68-4155-84E0-FB2D9FA65130}" src="https://github.com/user-attachments/assets/bd9156b7-c41d-45c9-bf2d-a9f0670f45c8" />
 
 
 # Technologies Used
