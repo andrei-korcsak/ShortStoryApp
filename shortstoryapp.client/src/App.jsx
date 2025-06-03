@@ -1,51 +1,67 @@
-import { useEffect, useState } from 'react';
+import { useState, useRef } from 'react';
 import './App.css';
 
 function App() {
-    const [forecasts, setForecasts] = useState();
+    const [sentences, setSentences] = useState([]);
+    const [sortedSentences, setSortedSentences] = useState([]);
+    const [fileName, setFileName] = useState('');
+    const fileInputRef = useRef(null);
 
-    useEffect(() => {
-        populateWeatherData();
-    }, []);
+    const handleFileChange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        setFileName(file.name);
 
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tableLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
+        const text = await file.text();
+        const rawSentences = text
+            .split(/(?<=[.?!])\s+/)
+            .map(s => s.trim())
+            .filter(s => s.length > 0);
+        setSentences(rawSentences);
+        setSortedSentences([]);
+    };
+
+    const handleSort = () => {
+        const sorted = [...sentences].sort((a, b) => a.localeCompare(b));
+        setSortedSentences(sorted);
+    };
+
+    const handleClear = () => {
+        setSentences([]);
+        setSortedSentences([]);
+        setFileName('');
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
 
     return (
-        <div>
-            <h1 id="tableLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
+        <div className="app-container">
+            <h1>Short Story Application</h1>
+            <div className="top-controls">
+                <label htmlFor="fileInput">Import a file: </label>
+                <input
+                    id="fileInput"
+                    type="file"
+                    accept=".txt"
+                    onChange={handleFileChange}
+                    ref={fileInputRef}
+                />
+                {fileName && <span style={{ marginLeft: '10px' }}>{fileName}</span>}
+                <button onClick={handleSort} disabled={sentences.length === 0} style={{ marginLeft: '20px' }}>
+                    Sort
+                </button>
+                <button onClick={handleClear} disabled={sentences.length === 0 && !fileName} style={{ marginLeft: '10px' }}>
+                    Clear
+                </button>
+            </div>
+            <div className="sorted-text-area">
+                {(sortedSentences.length > 0 ? sortedSentences : sentences).map((s, i) => (
+                    <div key={i}>{s}</div>
+                ))}
+            </div>
         </div>
     );
-    
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        if (response.ok) {
-            const data = await response.json();
-            setForecasts(data);
-        }
-    }
 }
 
 export default App;

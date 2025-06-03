@@ -5,7 +5,41 @@
     text-align: center;
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+body {
+    background: #fff;
+    color: #000;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.app-container {
+    min-height: 100vh;
+    width: 1000px;
+    padding: 32px;
+    background: #fff;
+    color: #000;
+}
+
+.sorted-text-area {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    height: 700px;                      
+    background: #f5f5f5;         
+    white-space: pre-line;
+    color: #000;
+    border-radius: 12px;        
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+    transition: box-shadow 0.2s;
+    overflow-y: auto;            
+    width: 100%;                 
+    box-sizing: border-box;
+}
+
+.top-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
 }
