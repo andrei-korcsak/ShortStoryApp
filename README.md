@@ -14,7 +14,7 @@ The lines are then sorted alphabetically based on their character order. For ins
 
 # Features
  - Import File button: Allows the user to select a text file from the File Explorer. The name of the imported file is displayed in the textbox.
- - Sort button: Sorts the sentences in the imported file alphabetically. The sorting is done on the client side, based on the character oder of the sentences.
+ - Sort button: Sorts the sentences in the imported file alphabetically. The sorting is done on the client side, based on the character order of the sentences.
  - Clear button: Removes the imported file and clears its content from the textbox.
  - Output textbox: Displays the content of the imported file.
 
