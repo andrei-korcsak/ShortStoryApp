@@ -32,7 +32,22 @@ The lines are then sorted alphabetically based on their character order. For ins
 - CSS
 
 # Running Application
-Open the command line at the preferred location to clone the repository by executing the command below:
-- git clone https://github.com/andrei-korcsak/ShortStoryApp.git
+1) Open the command line at the preferred location to clone the repository by executing the command: \
+   `git clone https://github.com/andrei-korcsak/ShortStoryApp.git`
+   
+2) Once the repository is successfully cloned, navigate to the client folder:
+_ShortStoryApp/shortstoryapp.client_
 
-Once the repository has been succesfully cloned, open the ShortStoryApp.sln in Visual Studio and run the application.
+3) Open Git Bash in the _shortstoryapp.client_ folder.
+  
+4) Execute the following commands, to install dependencies and the browser should automatically open:
+
+```
+npm install
+npm run dev
+```
+Refer to the screenshots below for additional guidance.
+
+<img width="922" alt="{1F2AA87E-5022-4031-8D3E-3556D17869C8}" src="https://github.com/user-attachments/assets/1c64ed61-8f8e-4a6a-b7a8-c6efed7ed458" />
+<img width="477" alt="{2C3A83D4-C800-4151-A2EA-1908B92C1FA9}" src="https://github.com/user-attachments/assets/86653f12-b55c-4839-a18a-3a6f8f3eaa2d" />
+<img width="1601" alt="{5FF27EC8-CF27-40BE-A59C-BF8A69472D6E}" src="https://github.com/user-attachments/assets/71bb0199-5e38-4718-930a-0b8f3b47ee44" />
